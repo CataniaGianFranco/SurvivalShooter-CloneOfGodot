@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnuj8jkadk2vi"]
+
+[ext_resource type="Script" path="res://scripts/MainCamera.cs" id="1_6idla"]
+[ext_resource type="PackedScene" uid="uid://iqk4b1xuy2rf" path="res://scenes/player.tscn" id="2_0h85o"]
+[ext_resource type="PackedScene" uid="uid://bi7dnrimcrpmj" path="res://scenes/environment/environment.tscn" id="3_75jji"]
+
+[sub_resource type="Environment" id="Environment_1h0vi"]
+background_mode = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nvion"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xbgxh"]
+sky_material = SubResource("ProceduralSkyMaterial_nvion")
+
+[sub_resource type="Environment" id="Environment_uyisd"]
+background_mode = 2
+sky = SubResource("Sky_xbgxh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main Game" type="Node"]
+
+[node name="Main Camera" type="Camera3D" parent="." node_paths=PackedStringArray("_target")]
+transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, -1, 15, -22)
+environment = SubResource("Environment_1h0vi")
+projection = 1
+current = true
+size = 9.0
+near = 0.3
+far = 1000.0
+script = ExtResource("1_6idla")
+_target = NodePath("../Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uyisd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_0h85o")]
+
+[node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
