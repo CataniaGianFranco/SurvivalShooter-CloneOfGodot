@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice", "Practice.csproj", "{649A8CE0-0D0A-4BAE-9ECF-3AF5FD46B4A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurvivalShooter-CloneOfGodot", "SurvivalShooter-CloneOfGodot.csproj", "{649A8CE0-0D0A-4BAE-9ECF-3AF5FD46B4A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

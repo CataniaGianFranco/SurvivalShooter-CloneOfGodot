@@ -25,7 +25,7 @@ window/size/window_height_override=648
 
 [dotnet]
 
-project/assembly_name="Practice"
+project/assembly_name="SurvivalShooter-CloneOfGodot"
 
 [file_customization]
 
