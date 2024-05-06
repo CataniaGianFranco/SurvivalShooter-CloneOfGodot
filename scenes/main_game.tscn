@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnuj8jkadk2vi"]
+[gd_scene load_steps=9 format=3 uid="uid://cnuj8jkadk2vi"]
 
 [ext_resource type="Script" path="res://scripts/MainCamera.cs" id="1_6idla"]
 [ext_resource type="PackedScene" uid="uid://iqk4b1xuy2rf" path="res://scenes/player.tscn" id="2_0h85o"]
 [ext_resource type="PackedScene" uid="uid://bi7dnrimcrpmj" path="res://scenes/environment/environment.tscn" id="3_75jji"]
+[ext_resource type="AudioStream" uid="uid://npydfgmpe2ts" path="res://audio/music/Background Music.mp3" id="4_klm7b"]
 
 [sub_resource type="Environment" id="Environment_1h0vi"]
 background_mode = 1
@@ -45,3 +46,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -35)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_klm7b")
+volume_db = -20.0
+parameters/looping = true

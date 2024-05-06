@@ -30,6 +30,7 @@ project/assembly_name="SurvivalShooter-CloneOfGodot"
 [file_customization]
 
 folder_colors={
+"res://audio/": "pink",
 "res://model/": "yellow",
 "res://scenes/": "orange",
 "res://scripts/": "red",
