@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bav88"]
 resource_name = "WallMaterial"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_vjxvm")
 emission_enabled = true
 normal_enabled = true
@@ -99,10 +98,8 @@ _data = {
 }
 
 [node name="Wall" type="StaticBody3D"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -35.3752, 0, 0.281442)
 
 [node name="Wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_edw4o")
 skeleton = NodePath("")
 
