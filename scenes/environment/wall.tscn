@@ -53,6 +53,8 @@ resource_name = "StarMaterial"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.923781, 1, 0.746862, 1)
 emission_enabled = true
+emission = Color(0.027451, 0.74902, 0, 1)
+emission_energy_multiplier = 2.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nqd00"]
 _surfaces = [{

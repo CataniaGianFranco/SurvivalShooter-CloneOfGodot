@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi7dnrimcrpmj"]
+[gd_scene load_steps=11 format=3 uid="uid://bi7dnrimcrpmj"]
 
 [ext_resource type="PackedScene" uid="uid://1rqd6lhm65yg" path="res://scenes/environment/floor.tscn" id="1_mlsxa"]
 [ext_resource type="PackedScene" uid="uid://b1gq5b4rxi4cg" path="res://scenes/environment/wall.tscn" id="2_ngxc2"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://d2x3ppcneceb7" path="res://scenes/environment/spinning_top.tscn" id="4_mlwgn"]
 [ext_resource type="PackedScene" uid="uid://dry1q4v4rxqu7" path="res://scenes/hearse.tscn" id="5_2haup"]
 [ext_resource type="PackedScene" uid="uid://cr6wcmhvskp6p" path="res://scenes/environment/drawers.tscn" id="6_vsk3w"]
+[ext_resource type="PackedScene" uid="uid://2i5isp8pg0x2" path="res://scenes/environment/clock.tscn" id="7_8xicl"]
+[ext_resource type="PackedScene" uid="uid://b8eb2tdc560ca" path="res://scenes/environment/blox.tscn" id="8_i40sr"]
+[ext_resource type="PackedScene" uid="uid://uuadu0jrwlxq" path="res://scenes/environment/bat.tscn" id="9_tpk37"]
+[ext_resource type="PackedScene" uid="uid://b0xsv20qky6mx" path="res://scenes/environment/train.tscn" id="10_lqfnk"]
 
 [node name="Environment" type="Node3D"]
 
@@ -26,3 +30,15 @@ transform = Transform3D(0.819152, -7.16125e-08, 0.573576, -8.74228e-08, -1, 0, 0
 
 [node name="Drawers" parent="." instance=ExtResource("6_vsk3w")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9.95685, 0, 30.6569)
+
+[node name="Clock" parent="." instance=ExtResource("7_8xicl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.4497, 0, 23.1997)
+
+[node name="Blox" parent="." instance=ExtResource("8_i40sr")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 42.2384, 0, 42.9433)
+
+[node name="Bat" parent="." instance=ExtResource("9_tpk37")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 30.4713, 0, 7.52132)
+
+[node name="Train" parent="." instance=ExtResource("10_lqfnk")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 36.6, 0, 50)
