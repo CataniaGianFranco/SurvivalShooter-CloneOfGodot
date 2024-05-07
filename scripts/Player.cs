@@ -11,8 +11,7 @@ public partial class Player : CharacterBody3D
 
     public override void _Ready()
     {
-        /*_animationTree.Set("parameters/conditions/idle", true);
-        _animationTree.Set("parameters/conditions/is_walking", false);*/
+
     }
 
     public override void _PhysicsProcess(double delta)
@@ -24,9 +23,6 @@ public partial class Player : CharacterBody3D
     {
         float _horizontal = Input.GetAxis("ui_left", "ui_right");
         float _vertical = Input.GetAxis("ui_down", "ui_up");
-
-        GD.Print($"Horizontal: {_horizontal}");
-        GD.Print($"Vertical: {_vertical}");
 
         Animating(_horizontal, _vertical);
     }
