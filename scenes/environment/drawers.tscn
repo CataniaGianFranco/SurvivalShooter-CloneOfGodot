@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cr6wcmhvskp6p"]
+[gd_scene load_steps=8 format=4 uid="uid://cr6wcmhvskp6p"]
 
 [ext_resource type="Texture2D" uid="uid://bpwnqa1repk2b" path="res://texture/environment/drawers/DrawersDiffuse.png" id="1_qjecl"]
 [ext_resource type="Texture2D" uid="uid://bc0qlvandtg4s" path="res://texture/environment/drawers/DrawersOcclusion.png" id="2_aaumk"]
@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttpbu"]
 resource_name = "DrawersMaterial"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_qjecl")
 emission_enabled = true
 normal_enabled = true
@@ -49,8 +48,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7hlun")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8jrj"]
+size = Vector3(12, 14.0227, 8.69092)
+
 [node name="Drawers" type="StaticBody3D"]
 
 [node name="Drawers" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_0fm35")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0523176, 6.98865, -0.627686)
+shape = SubResource("BoxShape3D_g8jrj")

@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnuj8jkadk2vi"]
+[gd_scene load_steps=10 format=3 uid="uid://cnuj8jkadk2vi"]
 
-[ext_resource type="Script" path="res://scripts/MainCamera.cs" id="1_6idla"]
+[ext_resource type="PackedScene" uid="uid://dy5ctb0y0swmk" path="res://main_camera.tscn" id="1_2ni0d"]
 [ext_resource type="PackedScene" uid="uid://iqk4b1xuy2rf" path="res://scenes/player.tscn" id="2_0h85o"]
 [ext_resource type="PackedScene" uid="uid://bi7dnrimcrpmj" path="res://scenes/environment/environment.tscn" id="3_75jji"]
 [ext_resource type="AudioStream" uid="uid://npydfgmpe2ts" path="res://audio/music/Background Music.mp3" id="4_klm7b"]
-
-[sub_resource type="Environment" id="Environment_1h0vi"]
-background_mode = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nvion"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,15 +26,7 @@ size = Vector3(80, 80, 1)
 
 [node name="Main Game" type="Node"]
 
-[node name="Main Camera" type="Camera3D" parent="." node_paths=PackedStringArray("_target")]
-transform = Transform3D(0.0871558, -0.498097, 0.86273, 0, 0.866025, 0.5, -0.996195, -0.0435779, 0.0754791, 22, 15, 1)
-environment = SubResource("Environment_1h0vi")
-projection = 1
-current = true
-size = 7.5
-near = 0.3
-far = 1000.0
-script = ExtResource("1_6idla")
+[node name="Main Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_2ni0d")]
 _target = NodePath("../Player")
 
 [node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
@@ -62,9 +51,11 @@ origin_offset = Vector3(0, 15.04, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uyisd")
 
-[node name="Player" parent="." node_paths=PackedStringArray("_animationTree") instance=ExtResource("2_0h85o")]
+[node name="Player" parent="." node_paths=PackedStringArray("_animationTree", "_cameraMain", "_gun") instance=ExtResource("2_0h85o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 _animationTree = NodePath("AnimationTree")
+_cameraMain = NodePath("../Main Camera")
+_gun = NodePath("PlayerCtrl/Ctrl_Grp")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_klm7b")

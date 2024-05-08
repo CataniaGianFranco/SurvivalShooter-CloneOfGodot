@@ -2,7 +2,7 @@ using Godot;
 
 public partial class MainCamera : Camera3D
 {
-	[Export] private CharacterBody3D _target;
+	[Export] private CharacterBody3D _target = null;
 
 	private Vector3 _offset = Vector3.Zero;
 
@@ -27,10 +27,10 @@ public partial class MainCamera : Camera3D
 	{
 		Vector3 targetCameraPosition = _target.Position + _offset;
 
-		float x = Mathf.Lerp(GlobalPosition.X, targetCameraPosition.X, _smoothing * (float)delta);
-    	float y = Mathf.Lerp(GlobalPosition.Y, targetCameraPosition.Y, _smoothing * (float)delta);
-    	float z = Mathf.Lerp(GlobalPosition.Z, targetCameraPosition.Z, _smoothing * (float)delta);
+		float x = Mathf.Lerp(Position.X, targetCameraPosition.X, _smoothing * (float)delta);
+    	float y = Mathf.Lerp(Position.Y, targetCameraPosition.Y, _smoothing * (float)delta);
+    	float z = Mathf.Lerp(Position.Z, targetCameraPosition.Z, _smoothing * (float)delta);
 
-		GlobalPosition = new Vector3(x, y, z);
+		Position = new Vector3(x, y, z);
 	}
 }
