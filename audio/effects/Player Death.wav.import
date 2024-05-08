@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://7oawrui3cyi8"
+path="res://.godot/imported/Player Death.wav-03fcce17a7c748713847ca66db46dcce.sample"
+
+[deps]
+
+source_file="res://audio/effects/Player Death.wav"
+dest_files=["res://.godot/imported/Player Death.wav-03fcce17a7c748713847ca66db46dcce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
