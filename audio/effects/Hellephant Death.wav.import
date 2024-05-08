@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkv4ssihg1jxg"
+path="res://.godot/imported/Hellephant Death.wav-cb9ac539c7b02913f30b1ead09b5de25.sample"
+
+[deps]
+
+source_file="res://audio/effects/Hellephant Death.wav"
+dest_files=["res://.godot/imported/Hellephant Death.wav-cb9ac539c7b02913f30b1ead09b5de25.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

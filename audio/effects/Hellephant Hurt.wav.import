@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsvg5bh1f1fwu"
+path="res://.godot/imported/Hellephant Hurt.wav-e3681bc4931af9661365be7397f3d5dc.sample"
+
+[deps]
+
+source_file="res://audio/effects/Hellephant Hurt.wav"
+dest_files=["res://.godot/imported/Hellephant Hurt.wav-e3681bc4931af9661365be7397f3d5dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
