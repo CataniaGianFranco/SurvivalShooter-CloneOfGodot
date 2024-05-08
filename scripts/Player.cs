@@ -2,10 +2,11 @@ using Godot;
 using Godot.Collections;
 
 public partial class Player : CharacterBody3D
-{
+{    
     [Export] private AnimationTree _animationTree = null;
     [Export] private Camera3D _cameraMain = null;
     [Export] private Gun _gun = null;
+    [Export] private Node3D _playerCtrl = null;
     
     private Vector3 _rayOrigin = Vector3.Zero;
     private Vector3 _rayEnd = Vector3.Zero;
@@ -18,7 +19,7 @@ public partial class Player : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        MapController(); 
+        MapController();
     }
 
     /*public override void _Input(InputEvent @event)
@@ -79,14 +80,19 @@ public partial class Player : CharacterBody3D
         _rayEnd = _rayOrigin + _cameraMain.ProjectRayNormal(_mousePosition) * _range;
 
         PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(_rayOrigin, _rayEnd);
+        query.CollisionMask = (1 << 1);
         
         Dictionary intersection = spaceState.IntersectRay(query);
 
         if (intersection != null)
         {
-            Vector3 position = (Vector3)intersection["position"];
-            this.LookAt(new Vector3(-position.X, this.GlobalTransform.Origin.Y, -position.Z), Vector3.Up);
-        }
+            Vector3 intersectionPoint = (Vector3)intersection["position"];
+            Vector3 directionToIntersection = (intersectionPoint - GlobalTransform.Origin).Normalized();
 
+            directionToIntersection.Y = 0.0f;
+            directionToIntersection = directionToIntersection.Normalized();
+
+            this.LookAt(GlobalTransform.Origin + (-directionToIntersection), Vector3.Up);
+        }
     }
 }
