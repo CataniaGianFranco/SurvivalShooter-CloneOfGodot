@@ -7,6 +7,8 @@ public partial class Player : CharacterBody3D
     [Export] private Camera3D _cameraMain = null;
     [Export] private Gun _gun = null;
     [Export] private Node3D _playerCtrl = null;
+    [Export] private MeshInstance3D _playerMesh = null;
+    [Export] private ShaderMaterial _dissolverShader = null;
     
     private Vector3 _rayOrigin = Vector3.Zero;
     private Vector3 _rayEnd = Vector3.Zero;
@@ -16,6 +18,13 @@ public partial class Player : CharacterBody3D
     private float _cameraRayLenght = 100.0f;
     private float _speed = 6.0f;
     private float _range = 100.0f;
+
+    public override void _Ready()
+    {
+        Tween tween = this.CreateTween();
+        tween.SetEase(Tween.EaseType.Out)
+       
+    }
 
     public override void _PhysicsProcess(double delta)
     {
