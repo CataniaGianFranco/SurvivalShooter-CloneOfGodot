@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dctjtu4q7grei"]
+
+[ext_resource type="Texture2D" uid="uid://csvjfbnopn13q" path="res://texture/hud/health/progress-bar-circle.png" id="1_taqmh"]
+[ext_resource type="Texture2D" uid="uid://dkky4r12bvu3k" path="res://texture/hud/health/progress-bar-frame.png" id="2_o3flx"]
+
+[node name="Health" type="TextureProgressBar"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+value = 100.0
+fill_mode = 5
+radial_initial_angle = 360.0
+texture_under = ExtResource("1_taqmh")
+texture_over = ExtResource("2_o3flx")
+texture_progress = ExtResource("1_taqmh")
+tint_under = Color(0.113725, 0.00784314, 0.0431373, 0.352941)
+tint_over = Color(0.92549, 0.0784314, 0.352941, 1)
+tint_progress = Color(0.917647, 0.317647, 0.443137, 1)

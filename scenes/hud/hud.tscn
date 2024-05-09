@@ -1,16 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0wlu85d8l04o"]
+[gd_scene load_steps=3 format=3 uid="uid://b0wlu85d8l04o"]
 
-[ext_resource type="PackedScene" uid="uid://dctjtu4q7grei" path="res://scenes/hud/health_ui.tscn" id="1_duafn"]
+[ext_resource type="PackedScene" uid="uid://dctjtu4q7grei" path="res://scenes/hud/health.tscn" id="1_duafn"]
+[ext_resource type="Script" path="res://HealthUi.cs" id="2_bmqef"]
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="HealthUI" parent="." instance=ExtResource("1_duafn")]
+[node name="HealthUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" parent="HealthUI" instance=ExtResource("1_duafn")]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.0
-offset_left = 48.0
-offset_top = -48.0
-offset_right = 48.0
-offset_bottom = -48.0
-grow_horizontal = 1
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -83.0
+offset_right = 91.0
+offset_bottom = -29.0
 grow_vertical = 0
+nine_patch_stretch = true
+script = ExtResource("2_bmqef")

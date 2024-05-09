@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnuj8jkadk2vi"]
+[gd_scene load_steps=11 format=3 uid="uid://cnuj8jkadk2vi"]
 
-[ext_resource type="PackedScene" uid="uid://dy5ctb0y0swmk" path="res://main_camera.tscn" id="1_2ni0d"]
+[ext_resource type="PackedScene" uid="uid://dy5ctb0y0swmk" path="res://scenes/main_camera.tscn" id="1_2ni0d"]
 [ext_resource type="PackedScene" uid="uid://iqk4b1xuy2rf" path="res://scenes/player.tscn" id="2_0h85o"]
 [ext_resource type="PackedScene" uid="uid://bi7dnrimcrpmj" path="res://scenes/environment/environment.tscn" id="3_75jji"]
 [ext_resource type="AudioStream" uid="uid://npydfgmpe2ts" path="res://audio/music/Background Music.mp3" id="4_klm7b"]
 [ext_resource type="PackedScene" uid="uid://b0wlu85d8l04o" path="res://scenes/hud/hud.tscn" id="5_2wid6"]
-[ext_resource type="PackedScene" uid="uid://dctjtu4q7grei" path="res://scenes/hud/health_ui.tscn" id="6_jvt5a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nvion"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -79,8 +78,3 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_im5xo")
 
 [node name="HUD" parent="." instance=ExtResource("5_2wid6")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("6_jvt5a")]
