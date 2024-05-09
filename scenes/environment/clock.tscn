@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://2i5isp8pg0x2"]
+[gd_scene load_steps=9 format=4 uid="uid://2i5isp8pg0x2"]
 
 [ext_resource type="Texture2D" uid="uid://cfhyg7fk46ltu" path="res://texture/environment/clock/ClockDiffuse.png" id="1_tjntm"]
 [ext_resource type="Texture2D" uid="uid://cbeht6ytoojby" path="res://texture/environment/clock/ClockOcclusion.png" id="2_tguon"]
@@ -78,8 +78,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u4teu")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ol2g5"]
+height = 1.06337
+radius = 1.45248
+
 [node name="Clock" type="StaticBody3D"]
 
 [node name="Clock" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_wposb")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0303016, 1.70796, -1.99054e-08)
+shape = SubResource("CylinderShape3D_ol2g5")

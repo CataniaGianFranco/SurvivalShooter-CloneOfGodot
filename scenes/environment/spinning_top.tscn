@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://d2x3ppcneceb7"]
+[gd_scene load_steps=8 format=4 uid="uid://d2x3ppcneceb7"]
 
 [ext_resource type="Texture2D" uid="uid://17xmj0oxek6p" path="res://texture/environment/spinning_top/SpinningTopDiffuse.png" id="1_vcnqv"]
 [ext_resource type="Texture2D" uid="uid://cludwnljqiexi" path="res://texture/environment/spinning_top/SpinningTopOcclusion.png" id="2_wcmn5"]
@@ -49,8 +49,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_evpcj")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lhqnl"]
+height = 0.98692
+radius = 0.709362
+
 [node name="SpinningTop" type="StaticBody3D"]
 
 [node name="SpinningTop" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_2p1yf")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.484932, 0)
+shape = SubResource("CylinderShape3D_lhqnl")

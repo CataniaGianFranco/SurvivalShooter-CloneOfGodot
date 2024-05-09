@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b0xsv20qky6mx"]
+[gd_scene load_steps=11 format=4 uid="uid://b0xsv20qky6mx"]
 
 [ext_resource type="Texture2D" uid="uid://bcxdmilujvbo0" path="res://texture/environment/train/TrainDiffuse.png" id="1_4nemj"]
 [ext_resource type="Texture2D" uid="uid://b4pc3x4i8uppi" path="res://texture/environment/train/TrainOcclusion.png" id="2_ivdfk"]
@@ -6,7 +6,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxda5"]
 resource_name = "TrainMaterial"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_4nemj")
 emission_enabled = true
 normal_enabled = true
@@ -57,6 +56,13 @@ _data = {
 "Take 001": SubResource("Animation_drhe8")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlq3b"]
+size = Vector3(2.87417, 2.09097, 3.39285)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wd72x"]
+height = 0.325365
+radius = 0.600108
+
 [node name="Train" type="StaticBody3D"]
 
 [node name="Train" type="MeshInstance3D" parent="."]
@@ -68,3 +74,11 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_7a4si")
 }
+
+[node name="Train2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558324, 1.04423, -0.295332)
+shape = SubResource("BoxShape3D_dlq3b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0.121378, 1.3764)
+shape = SubResource("CylinderShape3D_wd72x")

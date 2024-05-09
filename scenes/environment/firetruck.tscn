@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://k1nf8y3gkpt1"]
+[gd_scene load_steps=10 format=4 uid="uid://k1nf8y3gkpt1"]
 
 [ext_resource type="Texture2D" uid="uid://bwejq26hs74vk" path="res://texture/environment/firetruck/FiretruckDiffuse.png" id="1_ex52c"]
 [ext_resource type="Texture2D" uid="uid://bisdvp2bhsthy" path="res://texture/environment/firetruck/FiretruckOcclusion.png" id="2_cxv8a"]
@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joyxt"]
 resource_name = "FiretruckMaterial"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_ex52c")
 emission_enabled = true
 normal_enabled = true
@@ -49,8 +48,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n77ab")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqyxo"]
+size = Vector3(1.92936, 1.83726, 4.61987)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtbrw"]
+size = Vector3(0.101542, 1.22592, 5.01857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2xoa"]
+size = Vector3(0.815104, 1.85093, 1.02209)
+
 [node name="Firetruck" type="StaticBody3D"]
 
 [node name="Firetruck" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_2d1nr")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.983019, -0.183505, 0, 0.183505, 0.983019, 0, 0, 0, 1, 0.928098, 1.07598, 0.517025)
+shape = SubResource("BoxShape3D_rqyxo")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.938062, -0.183505, 0.293881, 0.175113, 0.983019, 0.0548603, -0.298957, 6.98396e-10, 0.954266, -0.862848, 0.765286, -0.0308939)
+shape = SubResource("BoxShape3D_dtbrw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.983019, -0.183505, 0, 0.183505, 0.983019, 0, 0, 0, 1, 1.47702, 1.1715, -2.30272)
+shape = SubResource("BoxShape3D_b2xoa")

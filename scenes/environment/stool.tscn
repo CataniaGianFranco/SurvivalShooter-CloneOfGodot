@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dbvv4gbwqjsxn"]
+[gd_scene load_steps=10 format=4 uid="uid://dbvv4gbwqjsxn"]
 
 [ext_resource type="Texture2D" uid="uid://dr433xxudojpa" path="res://texture/environment/stool/StoolDiffuse.png" id="1_buctc"]
 [ext_resource type="Texture2D" uid="uid://6ctjnymmg86l" path="res://texture/environment/stool/StoolOcclusion.png" id="2_b4g4n"]
@@ -7,7 +7,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c8j7"]
 resource_name = "StoolMaterial"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_buctc")
 emission_enabled = true
 normal_enabled = true
@@ -58,6 +57,9 @@ _data = {
 "Take 001": SubResource("Animation_u3ig0")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1ss8b"]
+radius = 0.246357
+
 [node name="Stool" type="StaticBody3D"]
 
 [node name="Stool" type="MeshInstance3D" parent="."]
@@ -68,3 +70,19 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_8eooc")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01285, 3.21781)
+shape = SubResource("CylinderShape3D_1ss8b")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2175, 1.01285, 0.0120788)
+shape = SubResource("CylinderShape3D_1ss8b")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21821, 1.01285, -0.000450373)
+shape = SubResource("CylinderShape3D_1ss8b")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01285, -3.2223)
+shape = SubResource("CylinderShape3D_1ss8b")

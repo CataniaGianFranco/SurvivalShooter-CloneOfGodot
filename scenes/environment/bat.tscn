@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://uuadu0jrwlxq"]
+[gd_scene load_steps=8 format=4 uid="uid://uuadu0jrwlxq"]
 
 [ext_resource type="Texture2D" uid="uid://cvigtd7d0qyyr" path="res://texture/environment/bat/BatDiffuse.png" id="1_wtftx"]
 [ext_resource type="Texture2D" uid="uid://cj5ej6ovnwkw4" path="res://texture/environment/bat/BatOcclusion.png" id="2_wl6c3"]
@@ -50,9 +50,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_34pnd")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t18bh"]
+size = Vector3(2.08301, 10.6338, 0.526367)
+
 [node name="Bat" type="StaticBody3D"]
 
 [node name="Bat" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9074)
 mesh = SubResource("ArrayMesh_kw56c")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.31396, 0.885239)
+shape = SubResource("BoxShape3D_t18bh")

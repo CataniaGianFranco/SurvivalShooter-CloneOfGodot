@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b1gq5b4rxi4cg"]
+[gd_scene load_steps=16 format=4 uid="uid://b1gq5b4rxi4cg"]
 
 [ext_resource type="Texture2D" uid="uid://25d040ama7nl" path="res://texture/environment/wall/WallDiffuse.png" id="1_vjxvm"]
 [ext_resource type="Texture2D" uid="uid://cbygpt0p8lbnc" path="res://texture/environment/wall/WallOcclusion.png" id="2_aj62a"]
@@ -48,6 +48,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_skad7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekjs6"]
+size = Vector3(1, 2.10791, 28.9015)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_03dbn"]
+size = Vector3(1, 3.23145, 18.0261)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umijb"]
 resource_name = "StarMaterial"
 vertex_color_use_as_albedo = true
@@ -90,14 +96,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nqd00")
 
-[sub_resource type="Animation" id="Animation_grtkf"]
-resource_name = "Take 001"
-length = 3.33333
+[sub_resource type="BoxShape3D" id="BoxShape3D_ck8wo"]
+size = Vector3(49.9026, 2.01465, 0.683594)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3pj8"]
-_data = {
-"Take 001": SubResource("Animation_grtkf")
-}
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2snf"]
+size = Vector3(3.70862, 1, 0.642578)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjt5g"]
+size = Vector3(3.69348, 1, 0.642578)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ixc5"]
+size = Vector3(3.80566, 1, 0.642578)
 
 [node name="Wall" type="StaticBody3D"]
 
@@ -105,11 +114,30 @@ _data = {
 mesh = SubResource("ArrayMesh_edw4o")
 skeleton = NodePath("")
 
+[node name="WallFrontOne" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315464, 1.06177, -14.3113)
+shape = SubResource("BoxShape3D_ekjs6")
+
+[node name="WallFrontTwo" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315464, 1.61572, -40.3744)
+shape = SubResource("BoxShape3D_03dbn")
+
 [node name="Stars" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_pdq1b")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_w3pj8")
-}
+[node name="WallRight" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4513, 1.00024, 0.158203)
+shape = SubResource("BoxShape3D_ck8wo")
+
+[node name="WallFrontThree" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6618, 0.49947, -28.5)
+shape = SubResource("BoxShape3D_w2snf")
+
+[node name="WallFrontFour" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65424, 0.49947, -31.6544)
+shape = SubResource("BoxShape3D_tjt5g")
+
+[node name="WallFrontFive" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.1, 0.49947, -30.0648)
+shape = SubResource("BoxShape3D_5ixc5")

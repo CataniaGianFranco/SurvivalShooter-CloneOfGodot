@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dr552sfxh37gn"]
+[gd_scene load_steps=9 format=4 uid="uid://dr552sfxh37gn"]
 
 [ext_resource type="Texture2D" uid="uid://dmwagdqryhmep" path="res://texture/environment/doll_house/DollhouseDiffuse.png" id="1_3m3jl"]
 [ext_resource type="Texture2D" uid="uid://c6s14sp2xjlj4" path="res://texture/environment/doll_house/DollhouseOcclusion.png" id="2_6onpt"]
@@ -50,8 +50,22 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vsb8m")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrajq"]
+size = Vector3(5.8, 10.5, 5.06102)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2ap6"]
+size = Vector3(0.095459, 1.84729, 1.04309)
+
 [node name="Dollhouse" type="StaticBody3D"]
 
 [node name="Dollhouse" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_vol5q")
 skeleton = NodePath("")
+
+[node name="House" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25, 0.353204)
+shape = SubResource("BoxShape3D_nrajq")
+
+[node name="Door" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, -0.945101, 1.02274, -2.55197)
+shape = SubResource("BoxShape3D_f2ap6")

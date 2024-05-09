@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://b8eb2tdc560ca"]
+[gd_scene load_steps=10 format=4 uid="uid://b8eb2tdc560ca"]
 
 [ext_resource type="Texture2D" uid="uid://cj6w6hdpl8pdf" path="res://texture/environment/blox/BloxDiffuse.png" id="1_kx8sl"]
 [ext_resource type="Texture2D" uid="uid://csc8esn3k4gtg" path="res://texture/environment/blox/BloxOcclusion.png" id="2_5oxn1"]
@@ -46,7 +46,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4a7r7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wguem"]
-size = Vector3(6.3, 1.96396, 8.37894)
+size = Vector3(1.20195, 0.557995, 4.77186)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1jef1"]
+size = Vector3(4.19034, 0.563965, 1.18337)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pak5i"]
+size = Vector3(1.77955, 0.56926, 1.12745)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef5sw"]
+size = Vector3(1.80869, 0.527191, 1.16341)
 
 [node name="Blox" type="StaticBody3D"]
 
@@ -55,5 +64,17 @@ mesh = SubResource("ArrayMesh_clt3h")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97607, 0.908707, 1.27994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.572953, 0.26898, 1.18844)
 shape = SubResource("BoxShape3D_wguem")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11962, 0.284038, -0.6128)
+shape = SubResource("BoxShape3D_1jef1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.935961, 0, -0.352103, 0, 1, 0, 0.352103, 0, 0.935961, 4.07749, 0.287237, -2.05773)
+shape = SubResource("BoxShape3D_pak5i")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.704287, 0, 0.709915, 0, 1, 0, -0.709915, 0, 0.704287, 0.916356, 0.279691, 4.42437)
+shape = SubResource("BoxShape3D_ef5sw")

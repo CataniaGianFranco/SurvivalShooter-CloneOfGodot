@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bi7dnrimcrpmj"]
+[gd_scene load_steps=18 format=3 uid="uid://bi7dnrimcrpmj"]
 
 [ext_resource type="PackedScene" uid="uid://bodfpiwjo6txl" path="res://scenes/environment/arches.tscn" id="1_7mu7k"]
 [ext_resource type="PackedScene" uid="uid://1rqd6lhm65yg" path="res://scenes/environment/floor.tscn" id="1_mlsxa"]
@@ -16,49 +16,97 @@
 [ext_resource type="PackedScene" uid="uid://k1nf8y3gkpt1" path="res://scenes/environment/firetruck.tscn" id="12_flmug"]
 [ext_resource type="PackedScene" uid="uid://cwkeje730l0c3" path="res://scenes/environment/doll_arm.tscn" id="14_u18vl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qoirh"]
+size = Vector3(49.2914, 2.8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_afan0"]
+size = Vector3(50.1, 2.8, 1)
+
 [node name="Environment" type="Node3D"]
 
 [node name="Blox" parent="." instance=ExtResource("8_i40sr")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 42.2384, 0, 42.9433)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Dollhouse" parent="." instance=ExtResource("3_vvkxh")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 25.8333, 0, 56.8333)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Train" parent="." instance=ExtResource("10_lqfnk")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 36.6, 0, 50)
+collision_layer = 5
+collision_mask = 5
 
 [node name="SpinningTop" parent="." instance=ExtResource("4_mlwgn")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 29.5269, 0, 38.0269)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Wall" parent="." instance=ExtResource("2_ngxc2")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.2, 0, 35.4)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Floor" parent="." instance=ExtResource("1_mlsxa")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.227, 0, 35.299)
 
 [node name="Clock" parent="." instance=ExtResource("7_8xicl")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.4497, 0, 23.1997)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Bat" parent="." instance=ExtResource("9_tpk37")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 30.4713, 0, 7.52132)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Drawers" parent="." instance=ExtResource("6_vsk3w")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9.95685, 0, 30.6569)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Firetruck" parent="." instance=ExtResource("12_flmug")]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 32, 0, 13.5)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Hearse" parent="." instance=ExtResource("5_2haup")]
 transform = Transform3D(0.819152, -7.16125e-08, 0.573576, -8.74228e-08, -1, 0, 0.573576, -5.01436e-08, -0.819152, 27.1913, 1.861, 27.677)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Stool" parent="." instance=ExtResource("12_6v4si")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 49, 0, 29)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Arches" parent="." instance=ExtResource("1_7mu7k")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 38, 0, 22.1)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.9519, 0.0895996, 22.0502)
+collision_layer = 5
+collision_mask = 5
 
 [node name="DollArm" parent="." instance=ExtResource("14_u18vl")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 59.7759, 0, 37.7089)
+collision_layer = 5
+collision_mask = 5
 
 [node name="Robot" parent="." instance=ExtResource("11_vfhta")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 24.7742, 0, 39.5047)
+collision_layer = 5
+collision_mask = 5
+
+[node name="WallBack" type="StaticBody3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 35.3, 0, 0.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5104, 1.39738, 3.8147e-06)
+shape = SubResource("BoxShape3D_qoirh")
+
+[node name="WallLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 35.3, 0, 0.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallLeft"]
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 49.7104, 1.39738, 25.5957)
+shape = SubResource("BoxShape3D_afan0")
