@@ -76,7 +76,8 @@ Fire1={
 
 [layer_names]
 
-3d_physics/layer_2="shootable"
+3d_physics/layer_2="floor"
+3d_physics/layer_3="shootable"
 
 [rendering]
 
