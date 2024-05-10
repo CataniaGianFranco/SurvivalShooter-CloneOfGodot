@@ -28,10 +28,10 @@ public partial class Gun : Node3D
 			_gunAudio.Play();
 			_gunLight.Visible = true;
 		}
-		DisableEffects();
+		
 	}
 
-	private void DisableEffects()
+	public void DisableEffects()
 	{
 
 		if (_timer >= (_TIME_BETWEEN_BULLETS * _EFFECTS_DISPLAY_TIME))

@@ -17,18 +17,18 @@ public partial class Player : CharacterBody3D
 
     private float _cameraRayLenght = 100.0f;
     private float _speed = 6.0f;
-    private float _range = 100.0f;
+    private float _range = 2000.0f;
 
-    public override void _Ready()
-    {
-        Tween tween = this.CreateTween();
-        tween.SetEase(Tween.EaseType.Out)
-       
-    }
 
     public override void _PhysicsProcess(double delta)
     {
         MapController();
+        Mouse();
+        
+        if (Input.IsActionPressed("Fire1"))
+            _gun.Shoot();
+
+        _gun.DisableEffects();
     }
 
     /*public override void _Input(InputEvent @event)
@@ -66,10 +66,7 @@ public partial class Player : CharacterBody3D
         Velocity = velocity;
         MoveAndSlide();
 
-        Mouse();
-
-        if (Input.IsActionPressed("Fire1"))
-            _gun.Shoot();
+        
     }
 
     private void Animating(float horizontal, float vertical)
