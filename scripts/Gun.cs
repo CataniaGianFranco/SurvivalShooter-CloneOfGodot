@@ -4,8 +4,7 @@ public partial class Gun : Node3D
 {
 	[Export] private Marker3D _gunBarrelEnd = null;
 	[Export] private AudioStreamPlayer _gunAudio = null;
-	[Export] private Light3D _gunLight = null;
-	[Export] private RayCast3D _gunRay = null;
+	[Export] private OmniLight3D _gunLight = null;
 
 	private float _scaled_delta = 0.0f;
 	private float _timer = 0.0f;
@@ -28,17 +27,14 @@ public partial class Gun : Node3D
 			_gunAudio.Play();
 			_gunLight.Visible = true;
 		}
-		
 	}
 
 	public void DisableEffects()
 	{
-
 		if (_timer >= (_TIME_BETWEEN_BULLETS * _EFFECTS_DISPLAY_TIME))
 		{
 			_gunLight.Visible = false;
 		}
-
 	}
 
 }

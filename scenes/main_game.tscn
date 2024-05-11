@@ -17,7 +17,12 @@ sky_material = SubResource("ProceduralSkyMaterial_nvion")
 background_mode = 2
 sky = SubResource("Sky_xbgxh")
 tonemap_mode = 2
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
 glow_enabled = true
+glow_normalized = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.042
 
 [sub_resource type="QuadMesh" id="QuadMesh_5gnmp"]
 size = Vector2(80, 80)
@@ -28,6 +33,7 @@ size = Vector3(80, 80, 1)
 [node name="Main Game" type="Node"]
 
 [node name="Main Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_2ni0d")]
+transform = Transform3D(0.0871558, -0.498097, 0.86273, 0, 0.866025, 0.5, -0.996195, -0.0435779, 0.0754791, 22, 15.4999, 1)
 _target = NodePath("../Player")
 
 [node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
@@ -40,6 +46,7 @@ transform = Transform3D(-0.376074, 0.386516, 0.842124, -0.0804044, -0.919028, 0.
 light_color = Color(0.764706, 0.721569, 1, 1)
 light_energy = 0.272
 shadow_enabled = true
+shadow_blur = 0.75
 
 [node name="LightmapProbe" type="LightmapProbe" parent="Lights"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.21, 0)
@@ -52,11 +59,13 @@ origin_offset = Vector3(0, 15.04, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uyisd")
 
-[node name="Player" parent="." node_paths=PackedStringArray("_animationTree", "_cameraMain", "_gun") instance=ExtResource("2_0h85o")]
+[node name="Player" parent="." node_paths=PackedStringArray("_animationTree", "_cameraMain", "_gun", "_playerCtrl", "_playerMesh") instance=ExtResource("2_0h85o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 _animationTree = NodePath("AnimationTree")
 _cameraMain = NodePath("../Main Camera")
 _gun = NodePath("PlayerCtrl/Ctrl_Grp")
+_playerCtrl = NodePath("PlayerCtrl/Ctrl_Grp")
+_playerMesh = NodePath("PlayerCtrl/Skeleton3D/Player")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_klm7b")
