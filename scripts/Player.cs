@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 
 public partial class Player : CharacterBody3D
-{    
+{   
     [Export] private AnimationTree _animationTree = null;
     [Export] private Camera3D _cameraMain = null;
     [Export] private Gun _gun = null;
