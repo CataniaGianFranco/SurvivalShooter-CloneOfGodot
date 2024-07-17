@@ -8,7 +8,7 @@ public partial class Player : CharacterBody3D
     [Export] private Gun _gun = null;
     [Export] private Node3D _playerCtrl = null;
     [Export] private MeshInstance3D _playerMesh = null;
-    [Export] private ShaderMaterial _dissolverShader = null;
+    [Export] private RayCast3D _rayCast = null;
     
     private Vector3 _rayOrigin = Vector3.Zero;
     private Vector3 _rayEnd = Vector3.Zero;
@@ -24,30 +24,15 @@ public partial class Player : CharacterBody3D
     {
         MapController();
         Mouse();
-        
-        if (Input.IsActionPressed("Fire1"))
-            _gun.Shoot();
 
         _gun.DisableEffects();
     }
-
-    /*public override void _Input(InputEvent @event)
-    {
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
-        {
-            switch (mouseEvent.ButtonIndex)
-            {
-                case MouseButton.Left:
-                _gun.Shoot();
-                break;
-            }
-        }
-    }*/
 
     private void MapController()
     {
         float horizontal = Input.GetAxis("ui_right", "ui_left");
         float vertical = Input.GetAxis("ui_down", "ui_up");
+        bool isShooting = Input.IsActionPressed("Fire1");
         
         Vector3 velocity = Velocity;
         
@@ -64,9 +49,11 @@ public partial class Player : CharacterBody3D
             velocity = new Vector3(direction.X, 0.0f, direction.Z) * _speed;
 
         Velocity = velocity;
+        
         MoveAndSlide();
 
-        
+        if (isShooting)
+            _gun.Shoot();
     }
 
     private void Animating(float horizontal, float vertical)
@@ -89,6 +76,8 @@ public partial class Player : CharacterBody3D
         query.CollisionMask = (1 << 1);
         
         Dictionary intersection = spaceState.IntersectRay(query);
+
+        _rayCast.TargetPosition = Vector3.Forward * _rayOrigin.Z;
 
         if (intersection != null)
         {
