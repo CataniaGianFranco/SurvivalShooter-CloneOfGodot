@@ -17,11 +17,12 @@ size = Vector3(80, 80, 1)
 [node name="Main Game" type="Node"]
 
 [node name="Main Camera" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_2ni0d")]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866026, 22, 15.4999, 1)
 environment = ExtResource("2_xqybe")
 _target = NodePath("../Player")
 
 [node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, -35)
+transform = Transform3D(0.127065, 0, -0.991894, 0, 1, 0, 0.991894, 0, 0.127065, 51.75, 0, -60)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -44,7 +45,7 @@ origin_offset = Vector3(0, 15.04, 0)
 environment = ExtResource("2_xqybe")
 
 [node name="Player" parent="." node_paths=PackedStringArray("_cameraMain", "_playerCtrl") instance=ExtResource("2_0h85o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8, 0, -21)
 _cameraMain = NodePath("../Main Camera")
 _playerCtrl = NodePath("PlayerCtrl/Ctrl_Grp")
 
@@ -54,6 +55,7 @@ volume_db = -20.0
 parameters/looping = true
 
 [node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -18.2)
 collision_layer = 2
 collision_mask = 2
 
@@ -69,4 +71,4 @@ shape = SubResource("BoxShape3D_im5xo")
 [node name="HUD" parent="." instance=ExtResource("5_2wid6")]
 
 [node name="ZombieBunny" parent="." instance=ExtResource("7_ltwt4")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -3, 0, -2)
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -3, 0, -2)

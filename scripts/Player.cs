@@ -17,7 +17,7 @@ public partial class Player : CharacterBody3D
 
     private float _cameraRayLenght = 100.0f;
     private float _speed = 6.0f;
-    private float _range = 2000.0f;
+    private float _range = 100.0f;
 
 
     public override void _PhysicsProcess(double delta)
@@ -36,7 +36,7 @@ public partial class Player : CharacterBody3D
         
         Vector3 velocity = Velocity;
         
-        Vector3 direction = (Transform.Basis * new Vector3(horizontal, 0.0f, vertical)).Normalized();
+        Vector3 direction = (Transform.Basis * new Vector3(-horizontal, 0.0f, -vertical)).Normalized();
 
         Animating(horizontal, vertical);
 
@@ -65,19 +65,21 @@ public partial class Player : CharacterBody3D
 
     private void Mouse()
     {
-        PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
-        
         Vector2 _mousePosition = GetViewport().GetMousePosition();
 
         _rayOrigin = _cameraMain.ProjectRayOrigin(_mousePosition);
+
+        GD.Print($"X: {_rayOrigin.X}, Y: {_rayOrigin.Y}, Z: {_rayOrigin.Z}");
         _rayEnd = _rayOrigin + _cameraMain.ProjectRayNormal(_mousePosition) * _range;
 
         PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(_rayOrigin, _rayEnd);
         query.CollisionMask = (1 << 1);
+
+        _rayCast.TargetPosition = new Vector3(0.0f, 0.0f, _rayOrigin.Z * 1.0f); //Solve this instruction.
+        
+        PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
         
         Dictionary intersection = spaceState.IntersectRay(query);
-
-        _rayCast.TargetPosition = Vector3.Forward * _rayOrigin.Z;
 
         if (intersection != null)
         {
@@ -87,7 +89,7 @@ public partial class Player : CharacterBody3D
             directionToIntersection.Y = 0.0f;
             directionToIntersection = directionToIntersection.Normalized();
 
-            this.LookAt(GlobalTransform.Origin + (-directionToIntersection), Vector3.Up);
+            this.LookAt(GlobalTransform.Origin + (directionToIntersection), Vector3.Up);
         }
     }
 }
