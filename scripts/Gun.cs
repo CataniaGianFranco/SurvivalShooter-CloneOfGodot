@@ -2,10 +2,10 @@ using Godot;
 
 public partial class Gun : Node3D
 {
-	[Export] private Marker3D _gunBarrelEnd = null;
 	[Export] private AudioStreamPlayer _gunAudio = null;
+	[Export] private Marker3D _gunBarrelEnd = null;
 	[Export] private OmniLight3D _gunLight = null;
-	[Export] private RayCast3D _rayCast = null;
+	[Export] private RayCast3D _laser = null;
 
 	private float _scaledDelta = 0.0f;
 	private float _timer = 0.0f;
@@ -19,19 +19,15 @@ public partial class Gun : Node3D
     {
         _timer += (float)delta;
 		_scaledDelta = (float)delta * _TIME_SCALE;
-
-		DetectCollider();
     }
 
 	private void DetectCollider()
 	{
-		if (_rayCast.IsColliding())
+		if (_laser.IsColliding())
 		{	
-			CharacterBody3D collider = _rayCast.GetCollider() as CharacterBody3D;
+			CharacterBody3D collider = _laser.GetCollider() as CharacterBody3D;
 			if (collider != null && collider is ZombieBunny zombunny)
-			{
 				zombunny.TakeDamage(_damage);
-			}
 		}
 	}
 
@@ -39,10 +35,11 @@ public partial class Gun : Node3D
 	{		
 		if (_scaledDelta != 0.0f && _timer >= _TIME_BETWEEN_BULLETS)
 		{
+			DetectCollider();
 			_timer = 0.0f;
-			_gunAudio.Play();
-			_rayCast.Enabled = true;
-			_gunLight.Visible = true;
+			_gunAudio.Play();  
+			_laser.Visible = true;
+			_gunLight.Visible = true;	
 		}
 	}
 
@@ -50,9 +47,8 @@ public partial class Gun : Node3D
 	{
 		if (_timer >= (_TIME_BETWEEN_BULLETS * _EFFECTS_DISPLAY_TIME))
 		{
-			_rayCast.Enabled = false;
+			_laser.Visible = false;
 			_gunLight.Visible = false;
 		}
 	}
-	
 }
