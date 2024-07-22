@@ -8,7 +8,6 @@ public partial class Player : CharacterBody3D
     [Export] private Gun _gun = null;
     [Export] private Node3D _playerCtrl = null;
     [Export] private MeshInstance3D _playerMesh = null;
-    //[Export] private RayCast3D _rayCast = null;
     
     private Vector3 _rayOrigin = Vector3.Zero;
     private Vector3 _rayEnd = Vector3.Zero;
@@ -69,14 +68,10 @@ public partial class Player : CharacterBody3D
 
         _rayOrigin = _cameraMain.ProjectRayOrigin(_mousePosition);
 
-        //GD.Print($"X: {_rayOrigin.X}, Y: {_rayOrigin.Y}, Z: {_rayOrigin.Z}");
         _rayEnd = _rayOrigin + _cameraMain.ProjectRayNormal(_mousePosition) * _range;
 
         PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(_rayOrigin, _rayEnd);
         query.CollisionMask = (1 << 1);
-
-
-        //_rayCast.TargetPosition = new Vector3(0.0f, 0.0f, _rayOrigin.Z * -1.0f); //Solve this instruction.
         
         PhysicsDirectSpaceState3D spaceState = GetWorld3D().DirectSpaceState;
         
