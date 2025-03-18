@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://delnd6j30asek"]
+[gd_scene load_steps=5 format=3 uid="uid://delnd6j30asek"]
 
 [ext_resource type="Script" path="res://scripts/Laser.cs" id="1_liats"]
+[ext_resource type="PackedScene" uid="uid://dtbmgtiwj3s3v" path="res://scenes/vfx/end_particles.tscn" id="2_dv6di"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r26wp"]
 transparency = 1
@@ -16,10 +17,13 @@ top_radius = 0.009
 bottom_radius = 0.009
 height = 0.007
 
-[node name="Laser" type="RayCast3D" node_paths=PackedStringArray("_beamMesh")]
+[node name="Laser" type="RayCast3D" node_paths=PackedStringArray("_beamMesh", "_endParticles")]
 target_position = Vector3(0, 0, 0)
 script = ExtResource("1_liats")
 _beamMesh = NodePath("BeamMesh")
+_endParticles = NodePath("EndParticles")
 
 [node name="BeamMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_ban5t")
+
+[node name="EndParticles" parent="." instance=ExtResource("2_dv6di")]

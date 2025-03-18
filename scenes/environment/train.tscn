@@ -53,7 +53,7 @@ length = 3.33333
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7a4si"]
 _data = {
-"Take 001": SubResource("Animation_drhe8")
+&"Take 001": SubResource("Animation_drhe8")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dlq3b"]

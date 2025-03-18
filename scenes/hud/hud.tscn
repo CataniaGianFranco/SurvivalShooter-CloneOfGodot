@@ -1,9 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0wlu85d8l04o"]
 
 [ext_resource type="PackedScene" uid="uid://dctjtu4q7grei" path="res://scenes/hud/health.tscn" id="1_duafn"]
-[ext_resource type="Script" path="res://scripts/HealthUi.cs" id="2_bmqef"]
+[ext_resource type="Script" path="res://scripts/Hud.cs" id="1_l256k"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("_health")]
+script = ExtResource("1_l256k")
+_health = NodePath("HealthUI/Health")
 
 [node name="HealthUI" type="Control" parent="."]
 layout_mode = 3
@@ -24,4 +26,3 @@ offset_right = 91.0
 offset_bottom = -29.0
 grow_vertical = 0
 nine_patch_stretch = true
-script = ExtResource("2_bmqef")

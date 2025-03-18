@@ -119,7 +119,7 @@ length = 3.33333
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcgsa"]
 _data = {
-"Take 001": SubResource("Animation_emfvf")
+&"Take 001": SubResource("Animation_emfvf")
 }
 
 [node name="Floor" type="Node3D"]

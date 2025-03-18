@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bi7dnrimcrpmj" path="res://scenes/environment/environment.tscn" id="3_75jji"]
 [ext_resource type="AudioStream" uid="uid://npydfgmpe2ts" path="res://audio/music/Background Music.mp3" id="4_klm7b"]
 [ext_resource type="PackedScene" uid="uid://b0wlu85d8l04o" path="res://scenes/hud/hud.tscn" id="5_2wid6"]
-[ext_resource type="PackedScene" uid="uid://djhtq05k6ro3w" path="res://scenes/enemy/zombie_bunny.tscn" id="7_ltwt4"]
-[ext_resource type="Script" path="res://scripts/GameManager.cs" id="8_h1dgb"]
+[ext_resource type="PackedScene" uid="uid://bcb54csrrlvsh" path="res://scenes/enemy/zombear.tscn" id="7_ltwt4"]
+[ext_resource type="Script" uid="uid://cpaje3vm883cm" path="res://scripts/GameManager.cs" id="8_h1dgb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5gnmp"]
 size = Vector2(80, 80)
@@ -16,6 +16,17 @@ size = Vector2(80, 80)
 size = Vector3(80, 80, 1)
 
 [node name="Main Game" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("8_h1dgb")
+
+[node name="HUD" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("5_2wid6")]
+_player = NodePath("../Player")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_klm7b")
+volume_db = -20.0
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_xqybe")
@@ -42,9 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.5249, 0)
 size = Vector3(75, 42.4498, 75)
 origin_offset = Vector3(0, 15.04, 0)
 
-[node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
-transform = Transform3D(0.127065, 0, -0.991894, 0, 1, 0, 0.991894, 0, 0.127065, 51.75, 0, -60)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -18.2)
 collision_layer = 2
@@ -65,14 +73,19 @@ _cameraMain = NodePath("../Main Camera")
 _playerCtrl = NodePath("PlayerCtrl/Ctrl_Grp")
 
 [node name="ZombieBunny" parent="." instance=ExtResource("7_ltwt4")]
-transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 26.2, 0, -25.3)
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 29.8034, 0, -25.3)
 
-[node name="HUD" parent="." instance=ExtResource("5_2wid6")]
+[node name="ZombieBunny2" parent="." instance=ExtResource("7_ltwt4")]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 26.2, 0, -36.7433)
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_klm7b")
-volume_db = -20.0
-parameters/looping = true
+[node name="ZombieBunny3" parent="." instance=ExtResource("7_ltwt4")]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 1.01264, 0, -17.9421)
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("8_h1dgb")
+[node name="ZombieBunny4" parent="." instance=ExtResource("7_ltwt4")]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 27.4075, 0, -14.5962)
+
+[node name="ZombieBunny5" parent="." instance=ExtResource("7_ltwt4")]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 10.8523, 0, -25.3)
+
+[node name="Enviroment" parent="." instance=ExtResource("3_75jji")]
+transform = Transform3D(0.127065, 0, -0.991894, 0, 1, 0, 0.991894, 0, 0.127065, 51.75, 0, -60)

@@ -3,6 +3,7 @@ using Godot;
 public partial class Laser : RayCast3D
 {
 	[Export] private MeshInstance3D _beamMesh = null;
+	[Export] private GpuParticles3D _endParticles = null;
 
 
 	public override void _Process(double delta)
@@ -24,6 +25,8 @@ public partial class Laser : RayCast3D
 				cylinderMesh.Height = castPoint.Y;
 
 			_beamMesh.Position = new Vector3(0.0f, castPoint.Y/2, 0.0f);
+
+			_endParticles.Position = new Vector3(0.0f, castPoint.Y, 0.0f);
 		}
 	}
 }

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="SurvivalShooter-CloneOfGodot"
 run/main_scene="res://scenes/main_game.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
@@ -28,17 +28,6 @@ window/layer_2=""
 [dotnet]
 
 project/assembly_name="SurvivalShooter-CloneOfGodot"
-
-[file_customization]
-
-folder_colors={
-"res://audio/": "pink",
-"res://model/": "yellow",
-"res://scenes/": "orange",
-"res://scripts/": "red",
-"res://shader/": "teal",
-"res://texture/": "purple"
-}
 
 [input]
 
@@ -77,10 +66,19 @@ Fire1={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/menu/Localization - Menu.en.translation", "res://localization/menu/Localization - Menu.jp.translation", "res://localization/menu/Localization - Menu.sp.translation")
+
 [layer_names]
 
 3d_physics/layer_2="floor"
 3d_physics/layer_3="shootable"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

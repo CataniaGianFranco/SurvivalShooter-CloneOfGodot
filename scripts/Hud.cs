@@ -1,7 +1,8 @@
 using Godot;
 
-public partial class HealthUi : TextureProgressBar
+public partial class Hud : CanvasLayer
 {
+	[Export] private TextureProgressBar _health = null;
 	[Export] private CharacterBody3D _player = null;
     private Player _playerScript = null;
 
@@ -9,8 +10,7 @@ public partial class HealthUi : TextureProgressBar
     public override void _Ready()
     {
 		_playerScript = _player as Player;
-        //_playerScript.Connect("HealthChangedEventHandler", this, nameof(OnHealthChanged));
-        UpdateHealthBar();
+        _playerScript.HealthChanged += OnHealthChanged;
     }
 
     private void OnHealthChanged()
@@ -20,6 +20,6 @@ public partial class HealthUi : TextureProgressBar
 
     private void UpdateHealthBar()
     {
-        Value = _playerScript.Health;
+        _health.Value = _playerScript.Health;
     }
 }
