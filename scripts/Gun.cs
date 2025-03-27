@@ -21,16 +21,6 @@ public partial class Gun : Node3D
 		_scaledDelta = (float)delta * _TIME_SCALE;
     }
 
-	private void DetectCollider()
-	{
-		if (_laser.IsColliding())
-		{	
-			CharacterBody3D collider = _laser.GetCollider() as CharacterBody3D;
-			if (collider != null && collider is ZombieBunny zombunny)
-				zombunny.TakeDamage(_damage);
-		}
-	}
-
     public void Shoot()
 	{		
 		if (_scaledDelta != 0.0f && _timer >= _TIME_BETWEEN_BULLETS)
@@ -49,6 +39,16 @@ public partial class Gun : Node3D
 		{
 			_laser.Visible = false;
 			_gunLight.Visible = false;
+		}
+	}
+
+	private void DetectCollider()
+	{
+		if (_laser.IsColliding())
+		{	
+			CharacterBody3D collider = _laser.GetCollider() as CharacterBody3D;
+			if (collider != null && collider is ZombieBunny zombunny)
+				zombunny.TakeDamage(_damage);
 		}
 	}
 }

@@ -29,8 +29,7 @@ public partial class Player : CharacterBody3D
 		if (Input.IsActionJustReleased("ui_select"))
 		{
 			if (_health <= 0) return;
-			else
-				TakeDamage(30);
+			else TakeDamage(30);
 		}
 		
 		if (!_isDeath)

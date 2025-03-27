@@ -12,7 +12,7 @@ config_version=5
 
 config/name="SurvivalShooter-CloneOfGodot"
 run/main_scene="res://scenes/main_game.tscn"
-config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
@@ -20,8 +20,9 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1152
-window/size/window_height_override=648
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
 window/layer_1="floor"
 window/layer_2=""
 
@@ -65,6 +66,12 @@ Fire1={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
 ]
 }
+right_stick_right={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
 
 [internationalization]
 
@@ -82,6 +89,9 @@ common/physics_interpolation=true
 
 [rendering]
 
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
-environment/ssao/quality=3
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
+environment/ssao/quality=4
+environment/ssil/quality=3
 anti_aliasing/quality/msaa_3d=3
+occlusion_culling/use_occlusion_culling=true

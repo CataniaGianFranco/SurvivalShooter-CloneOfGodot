@@ -1,19 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvl03bwtn3p1k"]
 
-[ext_resource type="Script" path="res://scripts/MainMenu.cs" id="1_dtvrw"]
+[ext_resource type="Script" uid="uid://c7hv32dcnrw2u" path="res://scripts/MainMenu.gd" id="1_ekxnf"]
 [ext_resource type="FontFile" uid="uid://etut0cvd20x0" path="res://Kenny/Font/Kenney Future.ttf" id="2_qqg0p"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_playButton", "_optionsButton", "_quitButton")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dtvrw")
-_playButton = NodePath("MarginContainer/VBoxContainer/Play")
-_optionsButton = NodePath("MarginContainer/VBoxContainer/Options")
-_quitButton = NodePath("MarginContainer/VBoxContainer/Quit")
+script = ExtResource("1_ekxnf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -69,9 +66,15 @@ theme_override_fonts/font = ExtResource("2_qqg0p")
 theme_override_font_sizes/font_size = 25
 text = "日本語"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="OnOptionsPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/English" to="." method="_on_english_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/English" to="." method="OnEnglishPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Spanish" to="." method="_on_spanish_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Spanish" to="." method="OnSpanishPressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Japanese" to="." method="OnJapanesePressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Japanese" to="." method="_on_japanese_pressed"]
